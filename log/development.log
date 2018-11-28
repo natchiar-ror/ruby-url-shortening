@@ -1,0 +1,801 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (141.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (131.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateShortenUrls (20181127143217)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateShortenUrls (20181127143217)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181127143217_create_shorten_urls.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shorten_urls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "base_original_url" text, "minimized_url" varchar, "clean_url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181127143217_create_shorten_urls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181127143217"]]
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (180.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-27 15:24:59.203819"], ["updated_at", "2018-11-27 15:24:59.203819"]]
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (78.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:16:40 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/home/anand/natchiar/rails_projects/ruby-coding-exercises/ex3/app/controllers/shortened_urls_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/shortened_urls_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:17:31 +0530
+Processing by ShortenedUrlsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anand/natchiar/rails_projects/ruby-coding-exercises/ex3/app/models/shorten_url.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+... :base_original_url, presence :true
+...                              ^):
+  
+app/models/shorten_url.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/controllers/shortened_urls_controller.rb:6:in `index'
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:18:20 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 1524ms (Views: 1509.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:18:32 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"minimized_url"=>"www.google.com"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:19:39 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:19:43 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"minimized_url"=>"www.google.com"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:20:21 +0530
+  
+ActionController::RoutingError (undefined method `skip_before_filter' for ShortenedUrlsController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/shortened_urls_controller.rb:4:in `<class:ShortenedUrlsController>'
+app/controllers/shortened_urls_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:20:41 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 18.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:20:46 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"minimized_url"=>"www.google.com"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `base_url=' for #<ShortenUrl:0x00007f623886b040>):
+  
+app/controllers/shortened_urls_controller.rb:16:in `create'
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:21:43 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 33ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:21:45 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:21:46 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:21:49 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"minimized_url"=>"www.google.com"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `clean' for #<ShortenUrl:0x0000000004f997d8>
+Did you mean?  clean_url):
+  
+app/controllers/shortened_urls_controller.rb:17:in `create'
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:22:12 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"minimized_url"=>"www.google.com"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.6ms)
+
+
+  
+NoMethodError (undefined method `base_url' for #<ShortenUrl:0x00007f62396681e8>):
+  
+app/models/shorten_url.rb:13:in `sanitize'
+app/controllers/shortened_urls_controller.rb:17:in `create'
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:22:50 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 33ms (Views: 20.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:22:59 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"google.com"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `base_url' for #<ShortenUrl:0x00007f6240067198>):
+  
+app/models/shorten_url.rb:14:in `sanitize'
+app/controllers/shortened_urls_controller.rb:17:in `create'
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:23:23 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"google.com"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:19
+  [1m[36mShortenUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "shorten_urls" ("base_original_url", "minimized_url", "clean_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["base_original_url", "google.com"], ["minimized_url", "xxx"], ["clean_url", "google.com"], ["created_at", "2018-11-27 16:53:23.737483"], ["updated_at", "2018-11-27 16:53:23.737483"]]
+  ↳ app/controllers/shortened_urls_controller.rb:19
+  [1m[35m (99.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:19
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 121ms (ActiveRecord: 101.7ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:23:23 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (uninitialized constant ShortenedUrlsController::ShortenedUrl):
+  
+app/controllers/shortened_urls_controller.rb:32:in `shortened'
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:24:11 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 35ms (Views: 21.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:24:17 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:24:21 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"google.com"}
+  [1m[36mShortenUrl Load (0.5ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:24:21 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:26:03 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `base_original_url' for nil:NilClass):
+    1: <html>
+    2: 	<body>
+    3: 		<center>
+    4: 		<h2>Your Original Url is: <%= @url.base_original_url %></h2>
+    5: 		<h2>Your Minimized Url is: <%= @url.minimized_url %></h2>
+    6: 		
+    7: 		</center>
+  
+app/views/shortened_urls/shortened.html.erb:4:in `_app_views_shortened_urls_shortened_html_erb___251249935143674053_70029980359560'
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:28:42 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 53ms (Views: 31.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:29:04 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:29:09 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"google.com"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:29:09 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:39:16 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:39:20 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"google.com"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "google.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:39:20 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 27ms (Views: 23.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:39:29 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:39:40 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"AASSD.COM"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "aassd.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:19
+  [1m[36mShortenUrl Create (1.1ms)[0m  [1m[32mINSERT INTO "shorten_urls" ("base_original_url", "minimized_url", "clean_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["base_original_url", "AASSD.COM"], ["minimized_url", "xxx"], ["clean_url", "aassd.com"], ["created_at", "2018-11-27 17:09:40.704020"], ["updated_at", "2018-11-27 17:09:40.704020"]]
+  ↳ app/controllers/shortened_urls_controller.rb:19
+  [1m[35m (232.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:19
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 240ms (ActiveRecord: 234.2ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:39:40 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:41:58 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 32ms (Views: 22.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:42:06 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"adsasd3er"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "adsasd3er"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:21
+  [1m[36mShortenUrl Create (1.1ms)[0m  [1m[32mINSERT INTO "shorten_urls" ("base_original_url", "minimized_url", "clean_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["base_original_url", "adsasd3er"], ["minimized_url", "xxx"], ["clean_url", "adsasd3er"], ["created_at", "2018-11-27 17:12:06.047505"], ["updated_at", "2018-11-27 17:12:06.047505"]]
+  ↳ app/controllers/shortened_urls_controller.rb:21
+  [1m[35m (302.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:21
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 312ms (ActiveRecord: 303.8ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:42:06 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:47
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:37
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 23.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:44:21 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 34ms (Views: 23.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:44:24 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:45:51 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 36ms (Views: 22.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:45:59 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"YAHOO.COM"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:21
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/models/shorten_url.rb:9:in `+'
+app/models/shorten_url.rb:9:in `generate_short_url'
+app/controllers/shortened_urls_controller.rb:21:in `create'
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:46:15 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"YAHOO.COM"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:21
+  [1m[36mShortenUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "shorten_urls" ("base_original_url", "minimized_url", "clean_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["base_original_url", "YAHOO.COM"], ["minimized_url", "xxx82"], ["clean_url", "yahoo.com"], ["created_at", "2018-11-27 17:16:15.568846"], ["updated_at", "2018-11-27 17:16:15.568846"]]
+  ↳ app/controllers/shortened_urls_controller.rb:21
+  [1m[35m (204.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:21
+Redirected to http://localhost:3000/shortened_urls/xxx82
+Completed 302 Found in 226ms (ActiveRecord: 207.1ms)
+
+
+Started GET "/shortened_urls/xxx82" for 127.0.0.1 at 2018-11-27 22:46:15 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx82"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx82"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:47
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx82"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:37
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:46:24 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:46:29 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"AASSD.COM"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "aassd.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "aassd.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-27 22:46:29 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:47
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:37
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:46:48 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"YAHOO.COM"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx82
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/shortened_urls/xxx82" for 127.0.0.1 at 2018-11-27 22:46:48 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx82"}
+  [1m[36mShortenUrl Load (0.3ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx82"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:47
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx82"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:37
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:46:54 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-27 22:48:16 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 18.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-27 22:48:30 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"QWWWW.COM"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "qwwww.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:19
+  [1m[36mShortenUrl Create (1.8ms)[0m  [1m[32mINSERT INTO "shorten_urls" ("base_original_url", "minimized_url", "clean_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["base_original_url", "QWWWW.COM"], ["minimized_url", "xxx41"], ["clean_url", "qwwww.com"], ["created_at", "2018-11-27 17:18:30.089096"], ["updated_at", "2018-11-27 17:18:30.089096"]]
+  ↳ app/controllers/shortened_urls_controller.rb:19
+  [1m[35m (335.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/shortened_urls_controller.rb:19
+Redirected to http://localhost:3000/shortened_urls/xxx41
+Completed 302 Found in 342ms (ActiveRecord: 337.3ms)
+
+
+Started GET "/shortened_urls/xxx41" for 127.0.0.1 at 2018-11-27 22:48:30 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx41"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx41"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:42
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx41"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:00:09 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 469ms (Views: 441.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:03:32 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:03:35 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:03:36 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:03:37 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-28 22:03:45 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"adsasd3er"}
+  [1m[36mShortenUrl Load (15.7ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "adsasd3er"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "adsasd3er"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx
+Completed 302 Found in 50ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/shortened_urls/xxx" for 127.0.0.1 at 2018-11-28 22:03:45 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:39
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:03:50 +0530
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 22:28:12 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anand/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ShortenedUrlsController#index as HTML
+  Rendering shortened_urls/index.html.erb within layouts/application
+  Rendered shortened_urls/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 241ms (Views: 220.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/shortened_urls/create" for 127.0.0.1 at 2018-11-28 22:28:19 +0530
+Processing by ShortenedUrlsController#create as HTML
+  Parameters: {"base_original_url"=>"YAHOO.COM"}
+  [1m[36mShortenUrl Load (0.6ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."clean_url" = ? LIMIT ?[0m  [["clean_url", "yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/shorten_url.rb:18
+Redirected to http://localhost:3000/shortened_urls/xxx82
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/shortened_urls/xxx82" for 127.0.0.1 at 2018-11-28 22:28:19 +0530
+Processing by ShortenedUrlsController#shortened as HTML
+  Parameters: {"minimized_url"=>"xxx82"}
+  [1m[36mShortenUrl Load (0.2ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx82"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:39
+  [1m[36mCACHE ShortenUrl Load (0.0ms)[0m  [1m[34mSELECT  "shorten_urls".* FROM "shorten_urls" WHERE "shorten_urls"."minimized_url" = ? LIMIT ?[0m  [["minimized_url", "xxx82"], ["LIMIT", 1]]
+  ↳ app/controllers/shortened_urls_controller.rb:32
+  Rendering shortened_urls/shortened.html.erb within layouts/application
+  Rendered shortened_urls/shortened.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
