@@ -1,3 +1,4 @@
+require "base64"
 class ShortenUrl < ApplicationRecord
 	
 	validates :base_original_url, presence: true
@@ -6,7 +7,8 @@ class ShortenUrl < ApplicationRecord
 	before_create :sanitize
 	
 	def generate_short_url
-		self.minimized_url = "xxx"+rand(100).to_s
+		puts "inside here"
+		self.minimized_url = Base64.encode64(self.base_original_url)
 	end
 	
 	def sanitize

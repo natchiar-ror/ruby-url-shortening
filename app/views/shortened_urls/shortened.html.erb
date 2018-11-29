@@ -1,5 +1,4 @@
-<html>
-	<body>
+
 	<%= flash[:notice] %>
 	<%= flash[:error] %>
 		<center>
@@ -7,5 +6,7 @@
 		<h2>Your Minimized Url is: <%= @url.minimized_url %></h2>
 		
 		</center>
-	</body>
-</html>
+
+
+
+$("[data-placeholder~=user_form]").html("<%= j render "form", subscription: @user %>");

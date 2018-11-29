@@ -15,17 +15,25 @@ class ShortenedUrlsController < ApplicationController
 		@url = ShortenUrl.new
 		@url.base_original_url = params[:base_original_url]
 		@url.sanitize
-		if @url.new_url?
-			if @url.save 
-				redirect_to shortened_path(@url.minimized_url)
+		
+		respond_to do |format|
+			if @url.new_url?
+				if @url.save 
+					@flag = false
+					#redirect_to shortened_path(@url.minimized_url)
+					format.js {}
+				else
+					flash[:error] = "Check the error below"
+					format.html{ render 'index'}
+				end
 			else
-				flash[:error] = "Check the error below"
-				render 'index'
+				@flag = true
+				flash[:notice] = "Short link for the given url is already available"
+				#redirect_to shortened_path(@url.find_duplicate.minimized_url)
+				format.js {}
 			end
-		else
-			flash[:notice] = "Short link for the given url is already available"
-			redirect_to shortened_path(@url.find_duplicate.minimized_url)
 		end
+	
 	end
 	
 	def shortened
