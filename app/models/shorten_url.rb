@@ -8,7 +8,7 @@ class ShortenUrl < ApplicationRecord
 	
 	def generate_short_url
 		puts "inside here"
-		self.minimized_url = Base64.encode64(self.base_original_url)
+		self.minimized_url = Base64.encode64(self.base_original_url).strip!
 	end
 	
 	def sanitize

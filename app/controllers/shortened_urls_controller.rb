@@ -38,6 +38,7 @@ class ShortenedUrlsController < ApplicationController
 	
 	def shortened
 		@url = ShortenUrl.find_by_minimized_url(params[:minimized_url])
+		redirect_to @url.base_original_url
 		
 	end
 	
