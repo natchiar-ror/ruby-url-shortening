@@ -12,6 +12,7 @@ class ShortenedUrlsController < ApplicationController
 	end
 	
 	def create
+		puts params.inspect
 		@url = ShortenUrl.new
 		@url.base_original_url = params[:base_original_url]
 		@url.sanitize
@@ -23,10 +24,12 @@ class ShortenedUrlsController < ApplicationController
 					#redirect_to shortened_path(@url.minimized_url)
 					format.js {}
 				else
+					put "eeeeeeeeeeeeeeeeee"
 					flash[:error] = "Check the error below"
 					format.html{ render 'index'}
 				end
 			else
+				puts "inside else"
 				@flag = true
 				flash[:notice] = "Short link for the given url is already available"
 				#redirect_to shortened_path(@url.find_duplicate.minimized_url)
