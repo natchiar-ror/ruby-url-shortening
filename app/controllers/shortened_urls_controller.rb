@@ -9,6 +9,7 @@ class ShortenedUrlsController < ApplicationController
 	
 	def new
 		redirect_to @url.clean_url
+
 	end
 	
 	def create
