@@ -1,4 +1,4 @@
 
-var result = "<% if !(@flag) %><h2>Your Original Url is: <%= @url.base_original_url %></h2><h2>Your Minimized Url is: <a href='/<%= escape_javascript @url.find_duplicate.minimized_url %>'><%= escape_javascript @url.minimized_url %></a></h2><% else %><a href='/<%= escape_javascript @url.find_duplicate.minimized_url %>'><%= escape_javascript @url.find_duplicate.minimized_url %></a><% end %>";
+var result = "<% if !(@flag) %><h2>Your Original Url is: <%= @url.base_original_url %></h2><h2>Your Minimized Url is: <a href='/<%= escape_javascript @url.find_duplicate.minimized_url %>'><%= escape_javascript  @domain +"/"+ @url.minimized_url %></a></h2><% else %><a href='/<%= escape_javascript @url.find_duplicate.minimized_url %>'><%= escape_javascript @domain+"/"+@url.find_duplicate.minimized_url %></a><% end %>";
 
 $("#result").html(result);
