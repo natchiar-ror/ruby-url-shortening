@@ -7,8 +7,15 @@ class ShortenUrl < ApplicationRecord
 	before_create :sanitize
 	
 	def generate_short_url
-		puts "inside here"
-		self.minimized_url = Base64.encode64(self.base_original_url).strip!
+		chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
+		generated_url = 6.times.map { chars.sample }.join
+		old_url = ShortenUrl.where(minimized_url: generated_url).last
+		if old_url.present?
+			self.generate_short_url
+		else
+			self.minimized_url = generated_url
+		end
+		#self.minimized_url = Base64.encode64(self.base_original_url).strip!
 	end
 	
 	def sanitize
