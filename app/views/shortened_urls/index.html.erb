@@ -19,23 +19,3 @@
 		<div class="col-sm-6" id="result"></div>
 	<div class="col-sm-3"></div>
 	</div>
-<script>
-$(function(){
-  $("form").submit(function(event){
-    event.preventDefault();
-
-    var action = $(this).attr('action');
-    var method = $(this).attr('method');
-
-    var base_url = $(this).find('#base_url').val();
-
-    $.ajax({
-      method: method,
-      url: action,
-      data: { base_original_url: base_url },
-      dataType: 'script'
-    });
-
-  });
-});
-</script>
